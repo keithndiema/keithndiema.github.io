@@ -1,262 +1,676 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keith Ndiema | Quant Developer & ML Engineer</title>
-    <!-- MathJax Configuration & Script for Professional LaTeX Processing -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
-            },
-            options: {
-                ignoreHtmlClass: 'tex2jax_ignore',
-                processHtmlClass: 'tex2jax_process'
-            }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://jsdelivr.net"></script>
-    <style>
-        :root {
-            --bg-color: #0f172a;
-            --text-color: #e2e8f0;
-            --accent-color: #38bdf8;
-            --card-bg: #1e293b;
-            --border-color: #334155;
-            --code-bg: #0b0f19;
-        }
-        
-        /* Light Theme Variables */
-        [data-theme="light"] {
-            --bg-color: #f8fafc;
-            --text-color: #334155;
-            --accent-color: #0284c7;
-            --card-bg: #ffffff;
-            --border-color: #e2e8f0;
-            --code-bg: #f1f5f9;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keith Ndiema | Quant developer and machine learning engineer</title>
+<meta name="description" content="Keith Ndiema builds quantitative and machine-learning software for African markets: a C++ matching engine, market intelligence for the NSE, crop-price forecasting over USSD, and road-safety analytics. Computer science undergraduate at Mbarara University of Science and Technology, Uganda.">
+<meta property="og:title" content="Keith Ndiema | Quant developer and machine learning engineer">
+<meta property="og:description" content="Quantitative and machine-learning software for African markets, built in Mbarara, Uganda.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f3f1ec">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1729'/%3E%3Crect x='6' y='7' width='14' height='4' fill='%23ff7a5c'/%3E%3Crect x='6' y='13' width='20' height='4' fill='%23ff7a5c'/%3E%3Crect x='6' y='19' width='18' height='4' fill='%232fc4a8'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Keith Ndiema","jobTitle":"Quant developer and machine learning engineer",
+ "alumniOf":{"@type":"CollegeOrUniversity","name":"Mbarara University of Science and Technology"},
+ "address":{"@type":"PostalAddress","addressLocality":"Mbarara","addressCountry":"UG"},
+ "sameAs":["https://github.com/keithndiema","https://www.linkedin.com/in/keithndiema","https://x.com/NdiemaKeith"]}
+</script>
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 40px 20px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .container {
-            max-width: 820px;
-            margin: 0 auto;
-        }
-        header {
-            margin-bottom: 40px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 25px;
-            position: relative;
-        }
-        h1 {
-            color: #fff;
-            margin: 0 0 5px 0;
-            font-size: 2.2rem;
-        }
-        [data-theme="light"] h1 {
-            color: #0f172a;
-        }
-        .tagline {
-            color: var(--accent-color);
-            font-size: 1.25rem;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-        .bio {
-            font-size: 1.05rem;
-            color: #cbd5e1;
-        }
-        [data-theme="light"] .bio {
-            color: #475569;
-        }
-        .header-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .theme-toggle {
-            background: none;
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            padding: 6px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-        .theme-toggle:hover {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-        }
-        .links {
-            margin-top: 15px;
-        }
-        .links a {
-            color: #94a3b8;
-            text-decoration: none;
-            margin-right: 20px;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-        [data-theme="light"] .links a {
-            color: #64748b;
-        }
-        .links a:hover {
-            color: var(--accent-color);
-        }
-        section {
-            margin-bottom: 45px;
-        }
-        h2 {
-            color: #fff;
-            border-left: 4px solid var(--accent-color);
-            padding-left: 12px;
-            font-size: 1.4rem;
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-        [data-theme="light"] h2 {
-            color: #0f172a;
-        }
-        .project-card {
-            background-color: var(--card-bg);
-            padding: 22px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border: 1px solid var(--border-color);
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-        .project-title {
-            color: #fff;
-            font-weight: bold;
-            font-size: 1.15rem;
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        [data-theme="light"] .project-title {
-            color: #0f172a;
-        }
-        .tag {
-            color: var(--accent-color);
-            font-size: 0.85rem;
-            font-family: monospace;
-            font-weight: normal;
-        }
-        .equation-box {
-            background-color: var(--code-bg);
-            padding: 15px;
-            border-radius: 6px;
-            margin: 12px 0;
-            border-left: 3px solid #64748b;
-            overflow-x: auto;
-            transition: background-color 0.3s;
-        }
-        .code-block {
-            background-color: var(--code-bg);
-            padding: 15px;
-            border-radius: 6px;
-            margin: 12px 0;
-            font-family: monospace;
-            font-size: 0.85rem;
-            overflow-x: auto;
-            white-space: pre;
-            border: 1px solid var(--border-color);
-            color: #cbd5e1;
-            transition: background-color 0.3s;
-        }
-        [data-theme="light"] .code-block {
-            color: #334155;
-        }
-        .badge {
-            background-color: #0284c7;
-            color: #fff;
-            font-size: 0.75rem;
-            padding: 3px 10px;
-            border-radius: 4px;
-            margin-right: 6px;
-            margin-bottom: 6px;
-            display: inline-block;
-        }
-        [data-theme="light"] .badge {
-            background-color: #0284c7;
-        }
-        ul.styled-list {
-            margin: 0;
-            padding-left: 20px;
-        }
-        ul.styled-list li {
-            margin-bottom: 10px;
-        }
-    </style>
+<!-- Fonts: Bricolage Grotesque for headings and interface text, Source Serif 4 for reading. System fonts are the fallback. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+
+<!-- MathJax renders the equations. (The previous version pointed at https://jsdelivr.net, which is not a script, so no maths ever rendered.) -->
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true },
+    options: { ignoreHtmlClass: 'tex2jax_ignore', processHtmlClass: 'tex2jax_process' }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+
+<script>
+  /* Apply the saved or system theme before first paint so the page never flashes the wrong colours. */
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem('theme'); } catch (e) {}
+    if (!t) t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+
+<style>
+  /* ---------- Tokens ---------- */
+  :root {
+    --paper: #f3f1ec;      /* page */
+    --paper-2: #e9e6df;    /* quiet panels */
+    --ink: #14213d;        /* text */
+    --ink-soft: #46506a;   /* secondary text, 7:1 on paper */
+    --line: #cfcbc1;
+    --link: #0b5fa5;
+    --bid: #0f7b6c;
+    --ask: #c2412a;
+    --gold: #b88700;
+    --book-bg: #0e1729;    /* the order book is always a dark panel */
+    --book-ink: #dbe3f2;
+    --book-dim: #8d9ab3;
+    --book-bid: #2fc4a8;
+    --book-ask: #ff7a5c;
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --measure: 64ch;
+  }
+  [data-theme="dark"] {
+    --paper: #0b1222;
+    --paper-2: #131c31;
+    --ink: #e7ecf6;
+    --ink-soft: #a6b1c9;
+    --line: #26314b;
+    --link: #6cb4ff;
+    --bid: #2fc4a8;
+    --ask: #ff8a70;
+    --gold: #e3b53a;
+    --book-bg: #0a101e;
+    --theme-color: #0b1222;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 1.0625rem;
+    line-height: 1.68;
+    transition: background-color .25s, color .25s;
+  }
+  a { color: var(--link); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
+
+  .skip { position: absolute; left: 16px; top: -60px; background: var(--ink); color: var(--paper); padding: 10px 14px; z-index: 10; font-family: var(--display); }
+  .skip:focus { top: 12px; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Top bar (sticky, with the current section underlined) ---------- */
+  .bar { position: sticky; top: 0; z-index: 5; background: var(--paper); transition: border-color .2s; border-bottom: 1px solid transparent; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; font-family: var(--display); font-size: .95rem; }
+  .bar nav { display: flex; gap: 22px; flex-wrap: wrap; }
+  .bar a { color: var(--ink); text-decoration: none; }
+  .bar a:hover { text-decoration: underline; }
+  .bar.scrolled { border-bottom-color: var(--line); }
+  .bar nav a[aria-current="true"] { text-decoration: underline; text-decoration-thickness: 2px; text-decoration-color: var(--gold); text-underline-offset: 6px; }
+  section[id] { scroll-margin-top: 72px; }
+  .clock { color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .toggle { white-space: nowrap; font: inherit; font-family: var(--display); background: none; color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+  .toggle:hover { border-color: var(--ink); }
+
+  /* ---------- Hero ---------- */
+  .hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 56px; align-items: center; padding: 56px 0 84px; }
+  h1 { font-family: var(--display); font-weight: 700; font-size: clamp(3rem, 8vw, 5.6rem); line-height: .95; letter-spacing: -.035em; margin: 0 0 22px; }
+  .role { font-family: var(--display); font-size: clamp(1.15rem, 2.2vw, 1.4rem); font-weight: 600; margin: 0 0 18px; color: var(--ink); }
+  .lede { max-width: 52ch; color: var(--ink-soft); margin: 0 0 26px; font-size: 1.12rem; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; font-family: var(--display); }
+  .btn { display: inline-block; padding: 11px 20px; border-radius: 6px; border: 1.5px solid var(--ink); color: var(--ink); text-decoration: none; font-weight: 600; font-size: .98rem; }
+  .btn.solid { background: var(--ink); color: var(--paper); }
+  .btn:hover { background: var(--gold); border-color: var(--gold); color: #14110a; }
+
+  /* The order book: a toy matching engine running in the browser. It is the one decorative thing on the page. */
+  .book { background: var(--book-bg); color: var(--book-ink); border-radius: 10px; padding: 18px 18px 14px; box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 24px 50px -28px rgba(10,16,30,.7); font-variant-numeric: tabular-nums; font-family: var(--display); }
+  .book-head { display: flex; justify-content: space-between; font-size: .8rem; color: var(--book-dim); padding: 0 4px 8px; }
+  .row { position: relative; display: grid; grid-template-columns: 1fr 1fr; padding: 3px 6px; font-size: .95rem; height: 26px; align-items: center; }
+  .row .bar-fill { position: absolute; top: 2px; bottom: 2px; right: 0; opacity: .22; border-radius: 2px; transition: width .35s ease; }
+  .row.ask .bar-fill { background: var(--book-ask); }
+  .row.bid .bar-fill { background: var(--book-bid); }
+  .row span { position: relative; }
+  .row .q { text-align: right; color: var(--book-dim); }
+  .row.ask .p { color: var(--book-ask); }
+  .row.bid .p { color: var(--book-bid); }
+  .row.hit { background: rgba(255, 255, 255, .09); }
+  .mid { display: flex; justify-content: space-between; align-items: baseline; padding: 9px 6px; margin: 4px 0; border-top: 1px solid #25304a; border-bottom: 1px solid #25304a; font-size: .85rem; color: var(--book-dim); }
+  .mid strong { font-size: 1.25rem; color: var(--book-ink); font-weight: 600; }
+  .mid strong.up { color: var(--book-bid); }
+  .mid strong.down { color: var(--book-ask); }
+  .book-note { font-family: var(--serif); font-size: .84rem; color: var(--book-dim); margin: 10px 4px 0; line-height: 1.45; }
+  .book-ctl { font: inherit; font-family: var(--display); font-size: .8rem; color: var(--book-ink); background: none; border: 1px solid #36425f; border-radius: 999px; padding: 3px 12px; cursor: pointer; }
+  .book-ctl:hover { border-color: var(--book-ink); }
+
+  /* Trade form under the order book */
+  .trade { margin: 14px 0 0; padding: 0; border: 0; font-family: var(--display); }
+  .trade legend { font-weight: 600; padding: 0; margin-bottom: 8px; font-size: .98rem; }
+  .trade .fields { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .seg { display: inline-flex; border: 1.5px solid var(--ink); border-radius: 6px; overflow: hidden; }
+  .seg input { position: absolute; opacity: 0; pointer-events: none; }
+  .seg label { padding: 7px 14px; cursor: pointer; font-weight: 600; font-size: .92rem; }
+  .seg input:checked + label.buy { background: var(--bid); color: #fff; }
+  .seg input:checked + label.sell { background: var(--ask); color: #fff; }
+  .seg input:focus-visible + label { outline: 3px solid var(--gold); outline-offset: -3px; }
+  .trade select, .trade input[type="number"] { font: inherit; font-size: .92rem; padding: 7px 10px; border-radius: 6px; border: 1.5px solid var(--line); background: var(--paper); color: var(--ink); }
+  .trade input[type="number"] { width: 5.2em; }
+  .trade button[type="submit"] { font: inherit; font-weight: 600; font-size: .92rem; padding: 8px 16px; border-radius: 6px; border: 1.5px solid var(--ink); background: var(--ink); color: var(--paper); cursor: pointer; }
+  .trade button[type="submit"]:hover { background: var(--gold); border-color: var(--gold); color: #14110a; }
+  .fill { min-height: 3.2em; margin: 10px 0 0; font-family: var(--serif); font-size: .95rem; color: var(--ink-soft); }
+  .fill b { color: var(--ink); }
+
+  /* Live GitHub line */
+  .pulse { font-family: var(--display); font-size: .85rem; color: var(--ink-soft); margin: 4px 0 0; min-height: 1.3em; }
+
+  /* AgriGuard error comparison */
+  .cmp { margin: 0 0 14px; max-width: var(--measure); font-family: var(--display); font-size: .92rem; }
+  .cmp div { display: grid; grid-template-columns: 110px 1fr 90px; gap: 10px; align-items: center; margin-bottom: 6px; }
+  .cmp i { display: block; height: 14px; border-radius: 2px; background: var(--bid); }
+  .cmp div.naive i { background: var(--ink-soft); }
+  .cmp span:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  .cmp p { margin: 6px 0 0; font-family: var(--serif); color: var(--ink-soft); font-size: .92rem; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 72px 0; border-top: 1px solid var(--line); }
+  h2 { font-family: var(--display); font-weight: 700; font-size: clamp(1.7rem, 3.6vw, 2.3rem); letter-spacing: -.02em; line-height: 1.1; margin: 0 0 12px; }
+  .sub { max-width: var(--measure); color: var(--ink-soft); margin: 0 0 40px; }
+
+  /* Projects are a ledger of rows, because they differ in size and what they have proven. */
+  .project { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 12px 48px; padding: 36px 0; border-top: 1px solid var(--line); }
+  .project:first-of-type { border-top: 0; padding-top: 4px; }
+  .project h3 { font-family: var(--display); font-size: 1.6rem; letter-spacing: -.02em; margin: 0 0 6px; line-height: 1.1; }
+  .stack { font-family: var(--display); font-size: .9rem; color: var(--ink-soft); margin: 0 0 8px; }
+  .status { font-family: var(--display); font-size: .88rem; font-weight: 600; margin: 0; }
+  .status.ok { color: var(--bid); }
+  .status.wip { color: var(--gold); }
+  .project p { margin: 0 0 14px; max-width: var(--measure); }
+  .project ul { margin: 0 0 14px; padding-left: 1.2em; max-width: var(--measure); }
+  .project li { margin-bottom: 6px; }
+  .proof { background: var(--paper-2); border-left: 3px solid var(--gold); padding: 12px 16px; max-width: var(--measure); font-size: .98rem; margin: 0 0 14px; }
+  .proof b { font-family: var(--display); }
+  .links a { font-family: var(--display); font-weight: 600; margin-right: 18px; }
+  details { max-width: var(--measure); margin: 0 0 14px; }
+  summary { cursor: pointer; font-family: var(--display); font-weight: 600; color: var(--link); }
+  details[open] summary { margin-bottom: 8px; }
+  .maths { background: var(--paper-2); padding: 12px 16px; border-radius: 6px; overflow-x: auto; font-size: .98rem; }
+  .maths p { margin: 0 0 8px; color: var(--ink-soft); }
+  mjx-container { color: var(--ink); }
+
+  /* How I work */
+  .principles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px; }
+  .principles h3 { font-family: var(--display); font-size: 1.15rem; margin: 0 0 8px; line-height: 1.25; }
+  .principles p { margin: 0; color: var(--ink-soft); font-size: 1rem; }
+
+  /* Facts list */
+  dl.facts { display: grid; grid-template-columns: 180px 1fr; gap: 14px 32px; margin: 0; max-width: 820px; }
+  dl.facts dt { font-family: var(--display); font-weight: 600; }
+  dl.facts dd { margin: 0; }
+
+  footer { border-top: 1px solid var(--line); padding: 36px 0 56px; font-family: var(--display); color: var(--ink-soft); font-size: .92rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 880px) {
+    .hero { grid-template-columns: 1fr; gap: 40px; padding: 28px 0 56px; }
+    .project { grid-template-columns: 1fr; gap: 6px; }
+    .principles { grid-template-columns: 1fr; gap: 26px; }
+    dl.facts { grid-template-columns: 1fr; gap: 2px; }
+    dl.facts dd { margin-bottom: 14px; }
+    section { padding: 52px 0; }
+  }
+  @media (max-width: 520px) {
+    .wrap { padding: 0 16px; }
+    .bar nav { gap: 14px; }
+    .clock { display: none; }
+  }
+  @media print {
+    .bar, .book, .trade, .fill, .cta, #bookToggle, figcaption { display: none !important; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .hero { display: block; padding: 0 0 16pt; }
+    a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; }
+    section { padding: 18pt 0; break-inside: avoid-page; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .row .bar-fill { transition: none; }
+  }
+</style>
 </head>
+
 <body class="tex2jax_process">
-    <div class="container">
-        <header>
-            <div class="header-controls">
-                <div>
-                    <h1>Keith Ndiema</h1>
-                    <div class="tagline">Quant Developer & Machine Learning Engineer</div>
-                </div>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">Toggle Light Mode</button>
-            </div>
-            <p class="bio">Computer Science Undergraduate at Mbarara University of Science & Technology (MUST), Uganda. Focused on structural time-series engineering, mathematical prediction modeling, and low-latency system design to deploy data intelligence across emerging global markets.</p>
-            <div class="links">
-                <a href="https://github.com" target="_blank">GitHub</a>
-                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-            </div>
-        </header>
+<a class="skip" href="#work">Skip to my work</a>
 
-        <section id="recognition">
-            <h2>Institutional Validation & Governance Showcase</h2>
-            <div class="project-card">
-                <div class="project-title">Ministry of ICT Government Systems Showcase</div>
-                <p>Selected to directly present high-impact predictive prototypes before Uganda's Ministry of ICT. Validated data-driven software tools engineered for civic utility, public infrastructure optimization, and economic resilience at an institutional governance level.</p>
-            </div>
-        </section>
+<div class="wrap">
+  <header class="bar">
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#method">How I work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <span class="clock" id="clock" aria-hidden="true"></span>
+    <button class="toggle" id="themeToggle" type="button">Dark mode</button>
+  </header>
 
-        <section id="projects">
-            <h2>Quantitative Infrastructures & Algorithmic Frameworks</h2>
-            
-            <div class="project-card">
-                <div class="project-title">Vestora <span class="tag">[Python, Quantitative Engineering]</span></div>
-                <p>An analytics engine engineered to process financial data and forecast market shifts, explicitly optimized for emerging market indicators like the Nairobi Securities Exchange (NSE). Built using customized walk-forward backtesting pipelines to restrict parameter optimization within historic boundaries and mitigate data leakage.</p>
-                <div class="equation-box">
-                    Optimization engine objective function targeting financial structural variables ($\theta$):
-                    $$J(\theta) = \sum_{t=1}^{T} \left( y_{t} - f(x_{t}; \theta) \right)^2 + \lambda \Vert{}\theta\Vert{}_2^2$$
-                </div>
-            </div>
+  <main>
+    <div class="hero">
+      <div>
+        <h1>Keith Ndiema</h1>
+        <p class="role">Quant developer and machine learning engineer</p>
+        <p class="lede">I build software that reads markets, crop prices and roads, and I try to be exact about what it can and cannot predict. I'm a computer science student at Mbarara University of Science and Technology, and I write for African markets first.</p>
+        <div class="cta">
+          <a class="btn solid" href="#work">See the work</a>
+          <a class="btn" href="https://github.com/keithndiema" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/keithndiema" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
 
-            <div class="project-card">
-                <div class="project-title">Traffic Sentinel <span class="tag">[Python, Spatio-Temporal ML]</span></div>
-                <p>A data-driven traffic intelligence platform engineered to identify high-risk time windows and predict accident hotspots. Deploys spatial-temporal computing layers to turn raw historical regional incident records into active, actionable analytical safety insights.</p>
+      <!-- Decorative: a simulated limit order book. Hidden from assistive tech; the caption below explains it. -->
+      <figure style="margin:0">
+        <div class="book" aria-hidden="true">
+          <div class="book-head"><span>Price</span><span>Size</span></div>
+          <div id="asks"></div>
+          <div class="mid"><span id="lastSide">last trade</span><strong id="last">100.00</strong></div>
+          <div id="bids"></div>
+        </div>
+        <figcaption class="book-note" style="color:var(--ink-soft)">
+          A toy order book running in your browser: random orders arrive, cancel and trade. It is a small cousin of the C++ matching engine below. Orders match at the best price first.
+          <button class="book-ctl" id="bookToggle" type="button" style="color:var(--ink);border-color:var(--line);margin-left:6px">Pause</button>
+        </figcaption>
+        <form id="tradeForm"><fieldset class="trade">
+          <legend>Trade against it</legend>
+          <div class="fields">
+            <div class="seg" role="radiogroup" aria-label="Side">
+              <input type="radio" name="side" id="sBuy" value="buy" checked><label class="buy" for="sBuy">Buy</label>
+              <input type="radio" name="side" id="sSell" value="sell"><label class="sell" for="sSell">Sell</label>
             </div>
+            <label class="sr" for="tType" style="position:absolute;left:-9999px">Order type</label>
+            <select id="tType"><option value="market">Market</option><option value="limit">Limit</option></select>
+            <label class="sr" for="tQty" style="position:absolute;left:-9999px">Size</label>
+            <input id="tQty" type="number" min="1" max="200" value="30" inputmode="numeric">
+            <label class="sr" for="tPrice" style="position:absolute;left:-9999px">Limit price</label>
+            <select id="tPrice" hidden></select>
+            <button type="submit">Send order</button>
+          </div>
+          <p class="fill" id="fill" role="status" aria-live="polite">Try a market buy of 30. It will eat the best asks and move the price.</p>
+        </fieldset></form>
+      </figure>
+    </div>
 
-            <div class="project-card">
-                <div class="project-title">AgriGuard <span class="tag">[ML, Price Forecasting, Cross-Platform UI]</span></div>
-                <p>Agricultural intelligence software modeling commodity price volatility using a blended time-series ensemble of XGBoost and additive forecasting architectures (Prophet). Designed with a multi-channel architecture serving responsive API payloads alongside compressed network frameworks down to low-bandwidth USSD platforms, maintaining systemic reliability for rural smallholder farmers.</p>
-                <div class="equation-box">
-                    Additive components breaking down trend ($g$), seasonality ($s$), and holiday indicators ($h$):
-                    $$y(t) = g(t) + s(t) + h(t) + \epsilon_t$$
-                </div>
+    <section id="work">
+      <h2>Selected work</h2>
+      <p class="sub">Five projects, newest thinking first. Each one says what is built and what has actually been measured, because a number I can't reproduce doesn't belong here.</p>
+
+      <article class="project">
+        <div>
+          <h3>Limit Order Book</h3>
+          <p class="stack">C++17, Python, SQL, R</p>
+          <p class="status ok">Tested and benchmarked</p>
+                  <p class="pulse" data-repo="keithndiema/limit-order-book"></p>
+        </div>
+        <div>
+          <p>A matching engine with strict price-time priority, plus an agent-based market simulator and an Avellaneda-Stoikov market-making strategy. The core is a dense price ladder with an occupancy bitmap and intrusive FIFO queues, exposed to Python through pybind11.</p>
+          <p class="proof"><b>Measured:</b> 5.9 to 10.5 million operations per second, with limit-order latency of 28 to 36 ns at the median, on one virtualised 2.1 GHz core. That is 4.4 to 23 times a <code>std::map</code> baseline. The 23 times is that baseline's worst case, and through the Python API the speed-up is only about 1.6 times.</p>
+          <ul>
+            <li>42 C++ tests, including about 1.1 million fuzzed operations checked against a reference book, repeated under AddressSanitizer and UBSan.</li>
+            <li>Mutation testing: six known bugs are injected and every one must make a test fail.</li>
+            <li>Price impact of order-flow imbalance computed in SQL, NumPy and R. All three agree at 0.0304 ticks per lot.</li>
+          </ul>
+          <details>
+            <summary>The market-making maths</summary>
+            <div class="maths">
+              <p>Avellaneda-Stoikov quotes around a reservation price that leans against inventory $q$, with risk aversion $\gamma$ and volatility $\sigma$:</p>
+              $$r = s - q\,\gamma\,\sigma^{2}(T-t), \qquad \delta^{a}+\delta^{b} = \gamma\,\sigma^{2}(T-t) + \frac{2}{\gamma}\ln\!\left(1+\frac{\gamma}{k}\right)$$
             </div>
-        </section>
+          </details>
+          <p class="links"><a href="https://github.com/keithndiema/limit-order-book" target="_blank" rel="noopener">Source on GitHub</a></p>
+        </div>
+      </article>
 
-        <section id="low-level">
-            <h2>Low-Level Systems & High-Performance Engineering</h2>
+      <article class="project">
+        <div>
+          <h3>Vestora</h3>
+          <p class="stack">Python, FastAPI, React, C++17, R, SQL</p>
+          <p class="status wip">Early, NSE first</p>
+                  <p class="pulse" data-repo="keithndiema/vestora"></p>
+        </div>
+        <div>
+          <p>Market intelligence for African capital markets. Trading apps help people place orders; Vestora is meant to help them understand what they are buying. Phase one covers the Nairobi Securities Exchange, and the Uganda Securities Exchange is planned next.</p>
+          <ul>
+            <li>A C++17 numerical core for indicators, drawdown, Monte-Carlo VaR and CVaR, and Black-Scholes pricing, with a NumPy fallback when it isn't compiled.</li>
+            <li>R for the statistical tests (Ljung-Box, ARCH, Jarque-Bera, ARIMA) and SQL window-function views for analytics.</li>
+            <li>XGBoost forecasters, and an Isolation Forest for anomalies tuned for thin, low-liquidity markets.</li>
+            <li>Walk-forward evaluation with tests that guard against data leakage, so a model is only judged on data it could not have seen.</li>
+          </ul>
+          <p class="proof"><b>Not yet:</b> USSD and SMS access are in development and no accuracy results are published. I'd rather say so than invent a number.</p>
+          <details>
+            <summary>The training objective</summary>
+            <div class="maths">
+              <p>Parameters $\theta$ are fitted by regularised least squares, with $\lambda$ chosen only on the training window of each walk-forward fold:</p>
+              $$J(\theta) = \sum_{t=1}^{T}\bigl(y_t - f(x_t;\theta)\bigr)^2 + \lambda\,\lVert\theta\rVert_2^{2}$$
+            </div>
+          </details>
+          <p class="links"><a href="https://github.com/keithndiema/vestora" target="_blank" rel="noopener">Source on GitHub</a></p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div>
+          <h3>AgriGuard</h3>
+          <p class="stack">Python, XGBoost, Prophet, FastAPI, Streamlit, USSD</p>
+          <p class="status ok">Working demo, honest metrics</p>
+                  <p class="pulse" data-repo="keithndiema/AgriGuard"></p>
+        </div>
+        <div>
+          <p>Crop prices and forecasts for smallholder farmers in Uganda, reachable from a smartphone app or from any phone through USSD. It uses WFP price data for about 40 markets and 38 commodities since 2006, blended with FEWS NET where they overlap.</p>
+          <p class="proof"><b>Measured:</b> on the latest 20% of months held out, XGBoost scores a MAE of about 544 UGX/kg and a MAPE of about 12.8%. A naive "same as last month" forecast scores almost the same. I removed earlier, better-looking figures because I couldn't reproduce them.</p>
+          <div class="cmp" role="img" aria-label="Mean absolute error: XGBoost 544 Ugandan shillings per kilogram, naive last-price forecast 554. Lower is better.">
+            <div><span>XGBoost</span><i style="width:98.2%"></i><span>544 UGX/kg</span></div>
+            <div class="naive"><span>Last price</span><i style="width:100%"></i><span>554 UGX/kg</span></div>
+            <p>Mean absolute error on held-out months, lower is better. The gap is about 10 UGX/kg, under 2%.</p>
+          </div>
+          <p>So the value isn't a sharper point forecast. It's calibrated uncertainty, cross-market comparison (where a crop is cheapest and dearest) and delivery to people who only have a feature phone, for example dialling <code>3*Maize</code> for next month's outlook.</p>
+          <details>
+            <summary>The Prophet decomposition</summary>
+            <div class="maths">
+              <p>Prophet, which AgriGuard uses as a reference for confidence intervals, splits a series into trend $g$, seasonality $s$ and holiday effects $h$:</p>
+              $$y(t) = g(t) + s(t) + h(t) + \epsilon_t$$
+            </div>
+          </details>
+          <p class="links"><a href="https://github.com/keithndiema/AgriGuard" target="_blank" rel="noopener">Source on GitHub</a></p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div>
+          <h3>Traffic Sentinel</h3>
+          <p class="stack">Python, YOLOv8, OpenCV, FastAPI, Streamlit</p>
+          <p class="status ok">Prototype, submitted to the Ministry of ICT</p>
+                  <p class="pulse" data-repo="traffic-sentinel/traffic-sentinel"></p>
+        </div>
+        <div>
+          <p>Road-safety analysis for Uganda's urban junctions. It watches traffic footage, counts cars, trucks, buses and boda-bodas, and gives each junction a risk score from 0 to 100 (low, medium, high or critical), with an hourly view of when it is most dangerous.</p>
+          <ul>
+            <li>The score is a transparent weighted sum: traffic density 55%, time of day 25% and congestion frequency 20%. It is a rule a traffic officer can inspect, not a black box.</li>
+            <li>Uganda road-accident records are overlaid on junction coordinates, so the footage score can be read against real incidents.</li>
+            <li>The README reports about 6 ms per frame for YOLOv8n detection on a CPU.</li>
+          </ul>
+          <p class="links"><a href="https://github.com/traffic-sentinel/traffic-sentinel" target="_blank" rel="noopener">Source on GitHub</a></p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div>
+          <h3>FPV Sim</h3>
+          <p class="stack">C++17, Python, NumPy, pygame</p>
+          <p class="status ok">Playable</p>
+                  <p class="pulse" data-repo="keithndiema/fpv_simulation"></p>
+        </div>
+        <div>
+          <p>A first-person drone simulator with a C++ physics core (six degrees of freedom, RK4 integration at 2 kHz, a PID flight controller) and a renderer written from scratch in Python. You choose a town in Uganda, from Kampala to Mbarara, Kasese or Moroto, and race through its streets at morning, midday, golden hour or dusk.</p>
+          <p>The towns are generated from a profile of each place (coordinates, elevation, rivers, lakes, mountains and landmarks), not traced from maps. An optional mode can fetch real OpenStreetMap data and falls back to the generated town if it can't. The regression suite has 28 tests, including an autopilot that must finish a lap in several towns.</p>
+          <p class="links"><a href="https://github.com/keithndiema/fpv_simulation" target="_blank" rel="noopener">Source on GitHub</a></p>
+        </div>
+      </article>
+    </section>
+
+    <section id="method">
+      <h2>How I work</h2>
+      <p class="sub">Three habits that show up in every project above.</p>
+      <div class="principles">
+        <div>
+          <h3>Test the forecast, not the story</h3>
+          <p>Every model is compared with a naive baseline and evaluated walk-forward, so it never sees the future. If the baseline wins, I report that.</p>
+        </div>
+        <div>
+          <h3>Check one thing two ways</h3>
+          <p>Fuzzing against a reference implementation, mutation testing, and the same statistic computed in three languages. Agreement across independent paths is the evidence.</p>
+        </div>
+        <div>
+          <h3>Design for the connection people have</h3>
+          <p>A farmer on a feature phone and a trader on fibre both get an answer. That's why AgriGuard speaks USSD and Vestora keeps SMS on its roadmap.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <dl class="facts">
+        <dt>Now</dt>
+        <dd>Studying computer science at Mbarara University of Science and Technology (MUST), Uganda, and building Vestora and AgriGuard as founder-led projects.</dd>
+        <dt>Recognition</dt>
+        <dd>Selected to present prototypes at the Ministry of ICT Government Systems Prototype Showcase in June 2026, where Traffic Sentinel was my entry.</dd>
+        <dt>Focus</dt>
+        <dd>Time-series modelling, backtesting without leakage, low-latency systems in C++, and software that works on low bandwidth.</dd>
+        <dt>Tools</dt>
+        <dd>Python, C++17, SQL, R, XGBoost, Prophet, FastAPI, React and TypeScript, Docker.</dd>
+        <dt>Based in</dt>
+        <dd>Mbarara, Uganda (East Africa Time).</dd>
+      </dl>
+    </section>
+
+    <section id="contact">
+      <h2>Let's talk</h2>
+      <p class="sub">I'm open to internships, research collaboration and conversations about African capital markets and agricultural data. LinkedIn is the quickest way to reach me.</p>
+      <div class="cta">
+        <a class="btn solid" href="https://www.linkedin.com/in/keithndiema" target="_blank" rel="noopener">Message me on LinkedIn</a>
+        <a class="btn" href="https://github.com/keithndiema" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://x.com/NdiemaKeith" target="_blank" rel="noopener">X</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Keith Ndiema, Mbarara, Uganda</span>
+    <span>Built by hand with plain HTML and CSS.</span>
+  </footer>
+</div>
+
+<script>
+  /* ---------- Theme toggle ---------- */
+  (function () {
+    var btn = document.getElementById('themeToggle');
+    function label() { btn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? 'Light mode' : 'Dark mode'; }
+    label();
+    btn.addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      label();
+    });
+  })();
+
+  /* ---------- Clock: local time in Mbarara ---------- */
+  (function () {
+    var el = document.getElementById('clock');
+    function tick() {
+      try {
+        el.textContent = 'Mbarara ' + new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Africa/Kampala' }).format(new Date());
+      } catch (e) { el.textContent = ''; }
+    }
+    tick(); setInterval(tick, 30000);
+  })();
+
+  /* ---------- Limit order book you can trade against ----------
+     Eight price levels per side; index 0 is the best price. Bid i is priced B - i*TICK, ask i is B + (i+1)*TICK,
+     so the spread is always one tick. When a best level is cleared the whole book slides one tick (B moves),
+     which is how a price "moves" in this toy. Matching is price priority: an order eats the best level first.
+     This is a teaching model of the idea, not the C++ engine, and it does not track individual queues. */
+  (function () {
+    var LEVELS = 8, TICK = 0.05, MAX = 60;
+    var asksEl = document.getElementById('asks'), bidsEl = document.getElementById('bids');
+    var lastEl = document.getElementById('last'), sideEl = document.getElementById('lastSide');
+    var toggle = document.getElementById('bookToggle');
+    var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var B = 100.00, bids = [], asks = [], hit = null;
+    function rnd(a, b) { return Math.floor(a + Math.random() * (b - a + 1)); }
+    for (var i = 0; i < LEVELS; i++) { bids.push(rnd(8, 40)); asks.push(rnd(8, 40)); }
+    function bidPx(i) { return B - i * TICK; }
+    function askPx(i) { return B + (i + 1) * TICK; }
+    function fmt(p) { return p.toFixed(2); }
+
+    function makeRows(host, cls) {
+      var rows = [];
+      for (var i = 0; i < LEVELS; i++) {
+        var r = document.createElement('div'); r.className = 'row ' + cls;
+        r.innerHTML = '<i class="bar-fill"></i><span class="p"></span><span class="q"></span>';
+        host.appendChild(r); rows.push(r);
+      }
+      return rows;
+    }
+    var askRows = makeRows(asksEl, 'ask'), bidRows = makeRows(bidsEl, 'bid');
+    asksEl.style.display = 'flex'; asksEl.style.flexDirection = 'column-reverse';   // best ask sits next to the spread
+
+    var priceSel = document.getElementById('tPrice');
+    function paint() {
+      for (var i = 0; i < LEVELS; i++) {
+        var a = askRows[i], b = bidRows[i];
+        a.querySelector('.p').textContent = fmt(askPx(i));
+        a.querySelector('.q').textContent = asks[i];
+        a.querySelector('.bar-fill').style.width = Math.min(100, asks[i] / MAX * 100) + '%';
+        b.querySelector('.p').textContent = fmt(bidPx(i));
+        b.querySelector('.q').textContent = bids[i];
+        b.querySelector('.bar-fill').style.width = Math.min(100, bids[i] / MAX * 100) + '%';
+        a.classList.toggle('hit', !!hit && hit.side === 'ask' && hit.i === i);
+        b.classList.toggle('hit', !!hit && hit.side === 'bid' && hit.i === i);
+      }
+      hit = null;
+      fillPriceOptions();
+    }
+
+    /* The limit-price menu always lists prices that can rest on the visible ladder. */
+    var lastMenuKey = '';
+    function fillPriceOptions() {
+      var buy = document.getElementById('sBuy').checked, key = (buy ? 'b' : 's') + fmt(B);
+      if (key === lastMenuKey) return;
+      lastMenuKey = key;
+      var prev = priceSel.value, html = '';
+      for (var i = 0; i < LEVELS; i++) {
+        var p = buy ? bidPx(i) : askPx(i);
+        html += '<option value="' + fmt(p) + '">' + fmt(p) + '</option>';
+      }
+      priceSel.innerHTML = html;
+      if (prev) priceSel.value = prev;
+    }
+
+    /* Match `qty` against the opposite side. Returns {filled, cost, levels}. A limit price stops the sweep. */
+    function sweep(buy, qty, limit) {
+      var book = buy ? asks : bids, filled = 0, cost = 0, levels = 0;
+      while (qty > 0) {
+        var px = buy ? askPx(0) : bidPx(0);
+        if (limit != null && (buy ? px > limit + 1e-9 : px < limit - 1e-9)) break;
+        var take = Math.min(qty, book[0]);
+        book[0] -= take; qty -= take; filled += take; cost += take * px; levels++;
+        lastEl.textContent = fmt(px);
+        lastEl.className = buy ? 'up' : 'down';
+        sideEl.textContent = buy ? 'last trade, buyer' : 'last trade, seller';
+        hit = { side: buy ? 'ask' : 'bid', i: 0 };
+        if (book[0] <= 0) {                                   // level cleared: slide the book one tick
+          book.shift(); book.push(rnd(8, 30));
+          var other = buy ? bids : asks;
+          other.unshift(rnd(6, 24)); other.pop();
+          B += buy ? TICK : -TICK;
+        }
+      }
+      return { filled: filled, cost: cost, levels: levels, left: qty };
+    }
+
+    function randomStep() {
+      var e = Math.random(), bidSide = Math.random() < 0.5, book = bidSide ? bids : asks;
+      if (e < 0.5) {                                          // limit order near the top
+        var i = Math.min(LEVELS - 1, Math.abs(rnd(-2, 4)));
+        book[i] = Math.min(MAX, book[i] + rnd(3, 14)); hit = { side: bidSide ? 'bid' : 'ask', i: i };
+      } else if (e < 0.78) {                                  // cancel
+        var j = rnd(0, LEVELS - 1);
+        book[j] = Math.max(2, book[j] - rnd(2, 10)); hit = { side: bidSide ? 'bid' : 'ask', i: j };
+      } else {                                                // market order from the crowd
+        sweep(!bidSide, rnd(6, 22), null);
+      }
+      paint();
+    }
+
+    /* Visitor orders */
+    var form = document.getElementById('tradeForm'), fill = document.getElementById('fill');
+    var typeSel = document.getElementById('tType'), qtyEl = document.getElementById('tQty');
+    function syncForm() { priceSel.hidden = typeSel.value !== 'limit'; lastMenuKey = ''; fillPriceOptions(); }
+    typeSel.addEventListener('change', syncForm);
+    form.addEventListener('change', function (e) { if (e.target.name === 'side') { lastMenuKey = ''; fillPriceOptions(); } });
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var buy = document.getElementById('sBuy').checked, qty = Math.max(1, Math.min(200, parseInt(qtyEl.value, 10) || 1));
+      qtyEl.value = qty;
+      var limit = typeSel.value === 'limit' ? parseFloat(priceSel.value) : null;
+      var r = sweep(buy, qty, limit), verb = buy ? 'Bought' : 'Sold', msg = '';
+      if (r.filled > 0) {
+        msg = '<b>' + verb + ' ' + r.filled + '</b> at an average of <b>' + fmt(r.cost / r.filled) + '</b> across ' + r.levels + (r.levels === 1 ? ' price level.' : ' price levels.');
+        if (qty > 15 && r.levels > 1) msg += ' Bigger orders get worse prices: that is market impact.';
+      }
+      if (r.left > 0 && limit != null) {                      // the unfilled part rests on the book
+        var idx = buy ? Math.round((B - limit) / TICK) : Math.round((limit - B) / TICK) - 1;
+        if (idx >= 0 && idx < LEVELS) {
+          (buy ? bids : asks)[idx] += r.left; hit = { side: buy ? 'bid' : 'ask', i: idx };
+          msg += (msg ? ' ' : '') + '<b>' + r.left + '</b> rests at ' + fmt(limit) + ' waiting for someone to trade with it.';
+        }
+      } else if (r.left > 0) { msg += ' The rest could not be filled.'; }
+      fill.innerHTML = msg || 'Nothing matched.';
+      paint();
+    });
+
+    paint(); lastEl.textContent = fmt(B); syncForm();
+    if (reduced) { toggle.hidden = true; return; }            // reduced motion: the book only moves when you trade
+
+    var timer = null, userPaused = false;
+    function run() { if (!timer && !userPaused && !document.hidden) timer = setInterval(randomStep, 520); }
+    function stop() { clearInterval(timer); timer = null; }
+    toggle.addEventListener('click', function () {
+      userPaused = !userPaused; toggle.textContent = userPaused ? 'Resume' : 'Pause'; userPaused ? stop() : run();
+    });
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : run(); });
+    run();
+  })();
+
+  /* ---------- Sticky bar: shadow line after scrolling, and the current section underlined ---------- */
+  (function () {
+    var bar = document.querySelector('.bar');
+    function onScroll() { bar.classList.toggle('scrolled', window.scrollY > 8); }
+    onScroll(); addEventListener('scroll', onScroll, { passive: true });
+    if (!('IntersectionObserver' in window)) return;
+    var links = {};
+    document.querySelectorAll('.bar nav a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          Object.keys(links).forEach(function (k) { links[k].removeAttribute('aria-current'); });
+          if (links[en.target.id]) links[en.target.id].setAttribute('aria-current', 'true');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    Object.keys(links).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+  })();
+
+  /* ---------- Live repo activity from the public GitHub API ----------
+     Fails quietly: if the request is blocked or rate-limited the lines stay empty and nothing breaks.
+     Results are cached for an hour in sessionStorage so a few page loads don't use up the anonymous limit. */
+  (function () {
+    var els = document.querySelectorAll('.pulse[data-repo]');
+    function ago(iso) {
+      var d = Math.floor((Date.now() - new Date(iso).getTime()) / 86400000);
+      return d < 1 ? 'today' : d === 1 ? 'yesterday' : d < 60 ? d + ' days ago' : Math.round(d / 30) + ' months ago';
+    }
+    els.forEach(function (el) {
+      var repo = el.getAttribute('data-repo'), key = 'gh:' + repo, data = null;
+      try { var c = JSON.parse(sessionStorage.getItem(key) || 'null'); if (c && Date.now() - c.t < 3600000) data = c.d; } catch (e) {}
+      function show(d) {
+        if (!d || !d.pushed_at) return;
+        el.textContent = 'Last pushed ' + ago(d.pushed_at) + (d.stargazers_count ? ', ' + d.stargazers_count + (d.stargazers_count === 1 ? ' star' : ' stars') : '');
+      }
+      if (data) return show(data);
+      fetch('https://api.github.com/repos/' + repo, { headers: { Accept: 'application/vnd.github+json' } })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) {
+          if (!d) return;
+          try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), d: { pushed_at: d.pushed_at, stargazers_count: d.stargazers_count } })); } catch (e) {}
+          show(d);
+        })
+        .catch(function () {});
+    });
+  })();
+</script>
+</body>
+</html>
